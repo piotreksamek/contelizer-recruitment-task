@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="mb-3">{{ 'user.list.page_title' | trans({}, 'messages') }}</h2>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-8">
+                    <input type="text" id="searchInput" class="form-control" placeholder="{{ 'user.search' | trans({}, 'messages') }}">
+                </div>
+                <div class="col-2">
+                    <button id="searchButton" class="btn btn-primary">{{ 'actions.search' | trans({}, 'messages') }}</button>
+                </div>
+                <div class="col-2">
+                    <button id="getAllUsersButton" class="btn btn-secondary">{{ 'actions.clean' | trans({}, 'messages') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">{{ 'user.list.name' | trans({}, 'messages') }}</th>
+            <th scope="col">{{ 'user.list.email' | trans({}, 'messages') }}</th>
+            <th scope="col">{{ 'user.list.gender' | trans({}, 'messages') }}</th>
+            <th scope="col">{{ 'user.list.status' | trans({}, 'messages') }}</th>
+            <th scope="col">{{ 'actions.action' | trans({}, 'messages') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}to</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.gender.translate | trans({}, 'messages')}}</td>
+                <td>{{ user.status.translate | trans({}, 'messages')}}</td>
+                <td>
+                    <a href="{{ path('contelizer_user_posts', {id: user.id}) }}" class="btn btn-warning">{{ 'user.list.posts' | trans({}, 'messages') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{
+  actions: {
+    back: "Wróć",
+    search: "Wyszukaj",
+    save: "Zapisz",
+    edit: "Edytuj",
+    clean: "Wyczyść",
+    action: "Akcje",
+  },
+  user: {
+    search: "Wyszukaj użytkownika...",
+    list: {
+      page_title: "Lista użytkowników",
+      name: "Imię",
+      email: "Email",
+      gender: "Płeć",
+      status: "Status",
+      posts: "Wpisy",
+    },
+    posts: {
+      title: "Tytuł",
+      content: "Treść",
+      list: {
+        page_title: "Lista Wpisów",
+      },
+      edit: {
+        page_title: "Edytuj użytkownika",
+      },
+      form: {
+      }
+    },
+    gender: {
+      male: "Mężczyzna",
+      female: "Kobieta",
+    },
+    status: {
+      active: "Aktywny",
+      inactive: "Nie aktywny",
+    }
+  }
+}

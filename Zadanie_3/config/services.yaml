@@ -1,0 +1,19 @@
+parameters:
+    gorest_api_url: '%env(GOREST_API_URL)%'
+    gorest_api_key: '%env(GOREST_API_KEY)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Kernel.php'
+
+    App\Client\HttpClient:
+        arguments:
+            $url: '%gorest_api_url%'
+            $apiKey: '%gorest_api_key%'

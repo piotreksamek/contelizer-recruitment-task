@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="mb-3">{{ 'user.posts.list.page_title' | trans({}, 'messages') }}</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">{{ 'user.posts.title' | trans({}, 'messages') }}</th>
+            <th scope="col">{{ 'actions.action' | trans({}, 'messages') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>
+                    <a href="{{ path('contelizer_user_posts_edit', {userId: post.userId, id: post.id}) }}" class="btn btn-warning">{{ 'actions.edit' | trans({}, 'messages') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contelizer_user_list') }}" class="btn btn-secondary">{{ 'actions.back' | trans({}, 'messages') }}</a>
+{% endblock %}

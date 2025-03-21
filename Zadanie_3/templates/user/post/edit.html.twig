@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="mb-3">{{ 'user.posts.list.page_title' | trans({}, 'messages') }}</h2>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.title) }}
+    {{ form_row(form.content) }}
+
+    <button class="btn-success btn">{{ 'actions.save' | trans({}, 'messages') }}</button>
+    <a href="{{ path('contelizer_user_posts', {id: userId}) }}" class="btn btn-secondary">{{ 'actions.back' | trans({}, 'messages') }}</a>
+
+    {{ form_end(form) }}
+
+{% endblock %}
