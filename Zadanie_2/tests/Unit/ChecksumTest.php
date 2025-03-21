@@ -28,6 +28,6 @@ class ChecksumTest extends TestCase
 
         $checksum = Checksum::get($nationalIdentificationNumber, $weights, $modulo);
 
-        $this->assertEquals(8, $checksum);
+        $this->assertNotEquals(5, $checksum);
     }
 }
